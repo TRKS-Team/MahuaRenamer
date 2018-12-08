@@ -11,7 +11,7 @@ namespace MahuaRenamer
     {
         private static void Main(string[] args)
         {
-            var buildNumber = Environment.GetEnvironmentVariable("APPVEYOR_BUILD_NUMBER", EnvironmentVariableTarget.Machine);  
+            var buildNumber = Environment.GetEnvironmentVariable("APPVEYOR_BUILD_NUMBER", EnvironmentVariableTarget.Process);  
             var directories = Directory.GetDirectories(".", "MahuaEvents", SearchOption.AllDirectories);
             if (directories.Length != 1) throw new FileNotFoundException("We could not find one 'MahuaEvents' folder.");
             if (buildNumber is null) throw new NotSupportedException("Please run this program in AppVeyor environment.");
